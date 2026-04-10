@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #ff6347;
+    color: white;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+}
+
+nav ul {
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+nav a,
+nav button {
+    text-decoration: none;
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+aside {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+}
+
+aside ul {
+    padding-left: 20px;
+}
+
+main {
+    background: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+}
+
+main form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+main input {
+    flex: 1;
+    padding: 10px;
+}
+
+main button {
+    padding: 10px 14px;
+    border: none;
+    background-color: #ff6347;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#contenedor-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+#contenedor-productos article {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    background: #fff;
+}
+
+#contenedor-productos img {
+    width: 100%;
+    max-width: 180px;
+    display: block;
+    margin: 0 auto 12px;
+    border-radius: 10px;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}

@@ -1,7 +1,7 @@
 import type { IUser } from "../types/IUser";
 
 const USERS_KEY = "users";
-const SESSION_KEY = "session";
+const SESSION_KEY = "userData";
 
 export function getUsers(): IUser[] {
     const users = localStorage.getItem(USERS_KEY);
@@ -23,4 +23,24 @@ export function saveSession(user: IUser): void {
 
 export function clearSession(): void {
     localStorage.removeItem(SESSION_KEY);
+}
+
+export function ensureAdminExists(): void {
+    const users = getUsers();
+
+    const adminExists = users.some(
+        (user) => user.email === "admin@foodstore.com"
+    );
+
+    if (!adminExists) {
+        users.push({
+            id: Date.now(),
+            nombre: "Administrador",
+            email: "admin@foodstore.com",
+            password: "admin123",
+            rol: "admin"
+        });
+
+        saveUsers(users);
+    }
 }

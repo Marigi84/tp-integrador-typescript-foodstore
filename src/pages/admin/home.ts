@@ -1,16 +1,18 @@
 import "./admin.css";
-import { requireRole } from "../../utils/navigate";
+import { getSession } from "../../utils/localStorage";
 import { logoutUser } from "../../utils/auth";
 
-const autorizado = requireRole("admin");
+const user = getSession();
 
-if (autorizado) {
-    const logoutBtn = document.getElementById("logout");
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener("click", () => {
-            logoutUser();
-            window.location.href = "/";
-        });
-    }
+if (!user) {
+    window.location.href = "/";
+} else if (user.rol !== "admin") {
+    window.location.href = "/cliente.html";
 }
+
+const logoutBtn = document.querySelector<HTMLButtonElement>("#logout");
+
+logoutBtn?.addEventListener("click", () => {
+    logoutUser();
+    window.location.href = "/";
+});
