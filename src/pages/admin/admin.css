@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    background-color: var(--color-fondo);
+    margin: 0;
+    padding: 24px;
+    color: #333;
+    color: var(--color-texto);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+nav a,
+nav button {
+    text-decoration: none;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    border: 1px solid var(--color-borde);
+    background: var(--color-blanco);
+    color: var(--color-texto);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+main {
+    background: white;
+    background: var(--color-blanco);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+caption {
+    caption-side: top;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th,
+td {
+    border: 1px solid #ddd;
+    border: 1px solid var(--color-borde);
+    padding: 10px;
+    text-align: center;
+}
+
+img {
+    border-radius: 6px;
+}
+
+details {
+    margin-top: 24px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+form {
+    margin-top: 16px;
+    display: grid;
+    gap: 12px;
+    max-width: 400px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    font-size: 14px;
+}
+
+input,
+select {
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-focus);
+}
+
+button {
+    background-color: #ff6347;
+    color: white;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff4500;
+    background-color: var(--color-focus);
+}
