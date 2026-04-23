@@ -12,26 +12,30 @@ function guardRoute() {
   const path = window.location.pathname;
 
   const isAdmin = path.includes("admin");
-  const isClient = path.includes("cliente");
+  const isStoreHome = path.includes("/src/pages/store/home/home.html");
+  const isStoreCart = path.includes("/src/pages/store/cart/cart.html");
+  const isClientArea = isStoreHome || isStoreCart;
 
-  if ((isAdmin || isClient) && !user) {
+  if ((isAdmin || isClientArea) && !user) {
     window.location.href = "/";
     return;
   }
 
   if (isAdmin && user?.rol !== "admin") {
-    window.location.href = "/cliente.html";
+    window.location.href = "/src/pages/store/home/home.html";
     return;
   }
 
-  if (isClient && user?.rol !== "client") {
+  if (isClientArea && user?.rol !== "client") {
     window.location.href = "/admin.html";
     return;
   }
 
-  if (!isAdmin && !isClient && user) {
+  if (!isAdmin && !isClientArea && user) {
     window.location.href =
-      user.rol === "admin" ? "/admin.html" : "/cliente.html";
+      user.rol === "admin"
+        ? "/admin.html"
+        : "/src/pages/store/home/home.html";
   }
 }
 

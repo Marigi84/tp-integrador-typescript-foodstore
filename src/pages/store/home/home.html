@@ -10,23 +10,31 @@
 <body>
     <header>
         <h1>Food Store</h1>
+
         <nav>
-            <a href="./home.html">Inicio</a>
-            <a href="../cart/cart.html">Carrito</a>
+            <a href="/src/pages/store/home/home.html">Inicio</a>
+            <a href="/src/pages/store/cart/cart.html">Carrito</a>
         </nav>
+
+        <div class="user-info">
+            <span id="user-name"></span>
+            <button id="logout">Cerrar sesión</button>
+        </div>
     </header>
 
-    <aside>
-        <h2>Categorías</h2>
-        <ul id="lista-categorias"></ul>
-    </aside>
-
     <main>
-        <section>
-            <input type="text" id="search-input" placeholder="Buscar productos..." />
-        </section>
+        <aside>
+            <h2>Categorías</h2>
+            <ul id="lista-categorias"></ul>
+        </aside>
 
-        <section id="contenedor-productos"></section>
+        <section class="catalogo">
+            <section>
+                <input type="text" id="search-input" placeholder="Buscar productos..." />
+            </section>
+
+            <section id="contenedor-productos"></section>
+        </section>
     </main>
 
     <script type="module" src="./home.ts"></script>

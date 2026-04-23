@@ -3,15 +3,15 @@ import { loginUser } from "../../../utils/auth";
 export function renderLogin(): string {
     return `
     <form id="login-form">
-      <label>Email</label>
-      <input type="email" id="login-email" required />
+    <label>Email</label>
+    <input type="email" id="login-email" required />
 
-      <label>Contraseña</label>
-      <input type="password" id="login-password" required />
+    <label>Contraseña</label>
+    <input type="password" id="login-password" required />
 
-      <button type="submit">Ingresar</button>
+    <button type="submit">Ingresar</button>
     </form>
-  `;
+    `;
 }
 
 export function initLogin(): void {
@@ -32,7 +32,9 @@ export function initLogin(): void {
 
         if (result.ok && result.user) {
             window.location.href =
-                result.user.rol === "admin" ? "/admin.html" : "/cliente.html";
+                result.user.rol === "admin"
+                    ? "/admin.html"
+                    : "/src/pages/store/home/home.html";
         }
     });
 }

@@ -24,7 +24,10 @@ export function requireRole(role: "admin" | "client"): boolean {
     }
 
     if (session.rol !== role) {
-        window.location.href = "/";
+        window.location.href =
+            session.rol === "admin"
+                ? "/admin.html"
+                : "/src/pages/store/home/home.html";
         return false;
     }
 
