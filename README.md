@@ -30,7 +30,6 @@ La aplicación permite a los usuarios registrarse, iniciar sesión y acceder a u
 
 ## 📁 Estructura del Proyecto
 
-
 src/
 ├── pages/
 │ ├── auth/
