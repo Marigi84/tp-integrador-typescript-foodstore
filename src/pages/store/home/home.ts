@@ -5,7 +5,8 @@ import type { Product } from "../../../types/product";
 import { agregarAlCarrito } from "../../../utils/cart";
 import { logoutUser } from "../../../utils/auth";
 import { getSession } from "../../../utils/localStorage";
-
+import { mostrarToast } from "../../../utils/toast";
+import "../../../style.css";
 
 requireRole("client");
 
@@ -13,6 +14,7 @@ const contenedorProductos = document.getElementById("contenedor-productos");
 const listaCategorias = document.getElementById("lista-categorias");
 const searchInput = document.getElementById("search-input") as HTMLInputElement | null;
 const logoutBtn = document.querySelector<HTMLButtonElement>("#logout");
+const catalogoResumen = document.getElementById("catalogo-resumen");
 
 logoutBtn?.addEventListener("click", () => {
     logoutUser();
@@ -58,10 +60,16 @@ function crearCardProducto(producto: Product): HTMLElement {
 
     botonAgregar?.addEventListener("click", () => {
         agregarAlCarrito(producto);
-        alert(`${producto.nombre} fue agregado al carrito`);
+        mostrarToast(`${producto.nombre} agregado al carrito 🛒`);
     });
 
     return article;
+}
+
+function actualizarResumen(titulo: string, cantidad: number): void {
+    if (!catalogoResumen) return;
+
+    catalogoResumen.textContent = `${titulo} · ${cantidad} producto(s)`;
 }
 
 function renderizarProductos(productos: Product[]): void {
@@ -81,6 +89,10 @@ function filtrarPorCategoria(categoriaId: number): void {
     );
 
     renderizarProductos(productosFiltrados);
+
+    const categoria = getCategories().find(c => c.id === categoriaId);
+
+    actualizarResumen(categoria?.nombre || "Categoría", productosFiltrados.length);
 }
 
 function buscarProductos(texto: string): void {
@@ -98,6 +110,7 @@ function buscarProductos(texto: string): void {
     }
 
     renderizarProductos(productosFiltrados);
+    actualizarResumen("Resultados de búsqueda", productosFiltrados.length);
 }
 
 function renderizarCategorias(): void {
@@ -134,4 +147,5 @@ if (searchInput) {
 }
 
 renderizarProductos(PRODUCTS);
+actualizarResumen("Todos los productos", PRODUCTS.length);
 renderizarCategorias();

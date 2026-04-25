@@ -13,7 +13,7 @@
 
         <nav>
             <a href="/src/pages/store/home/home.html">Inicio</a>
-            <a href="/src/pages/store/cart/cart.html">Carrito</a>
+            <a href="/src/pages/store/cart/cart.html">🛒 Carrito</a>
         </nav>
 
         <div class="user-info">
@@ -29,9 +29,13 @@
         </aside>
 
         <section class="catalogo">
-            <section>
+            <section class="busqueda">
+                <span class="search-icon">🔍</span>
                 <input type="text" id="search-input" placeholder="Buscar productos..." />
             </section>
+
+            <p id="catalogo-resumen">Todos los productos</p>
+
 
             <section id="contenedor-productos"></section>
         </section>

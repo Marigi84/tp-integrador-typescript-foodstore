@@ -1,100 +1,3 @@
-:root {
-    --color-primario: #ff6347;
-    --color-fondo: #f0f0f0;
-    --color-texto: #333;
-    --color-blanco: #fff;
-    --color-borde: #ddd;
-    --color-focus: #ff4500;
-    --color-header: #174c3c;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-}
-
-/* Header */
-header {
-    background-color: var(--color-header);
-    color: var(--color-blanco);
-    padding: 22px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-header h1 {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-nav {
-    display: flex;
-    align-items: center;
-    gap: 26px;
-    margin-left: auto;
-}
-
-nav a {
-    color: var(--color-blanco);
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 22px;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-left: 26px;
-}
-
-#user-name {
-    color: var(--color-blanco);
-    font-weight: 600;
-    font-size: 22px;
-}
-
-.user-info button {
-    padding: 10px 16px;
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.user-info button:hover {
-    background-color: var(--color-focus);
-}
-
-nav button {
-    padding: 8px 14px;
-    background-color: var(--color-primario);
-    color: var(--color-blanco);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-nav button:hover {
-    background-color: var(--color-focus);
-}
-
 /* Main layout */
 main {
     display: grid;
@@ -213,24 +116,21 @@ article button:disabled {
     background-color: #bbb;
     cursor: not-allowed;
 }
-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+.busqueda {
+    position: relative;
+    max-width: 420px;
 }
 
-nav {
-    margin-left: auto;
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
 }
 
-.user-info {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-left: 20px;
+#search-input {
+    padding-left: 42px;
 }
 
-#user-name {
-    color: var(--color-blanco);
-    font-weight: 500;
-}

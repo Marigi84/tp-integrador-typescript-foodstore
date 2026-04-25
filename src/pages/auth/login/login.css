@@ -1,0 +1,82 @@
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-login {
+    background-color: var(--color-blanco);
+    padding: 30px;
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.titulo {
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-texto);
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: var(--color-texto);
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    color: var(--color-texto);
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-focus);
+}
+
+button {
+    width: 100%;
+    padding: 8px;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: var(--color-focus);
+}
+
+.registro {
+    text-align: center;
+    margin-top: 20px;
+    color: var(--color-texto);
+}
+
+#message {
+    font-weight: bold;
+}

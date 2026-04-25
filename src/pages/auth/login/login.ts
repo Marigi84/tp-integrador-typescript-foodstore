@@ -1,4 +1,5 @@
 import { loginUser } from "../../../utils/auth";
+import "./login.css";
 
 export function renderLogin(): string {
     return `
