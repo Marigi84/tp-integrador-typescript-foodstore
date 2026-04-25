@@ -1,7 +1,7 @@
 import { registerUser } from "../../../utils/auth";
 
 export function renderRegistro(): string {
-    return `
+  return `
     <form id="register-form">
       <label>Nombre</label>
       <input type="text" id="register-nombre" required />
@@ -18,22 +18,28 @@ export function renderRegistro(): string {
 }
 
 export function initRegistro(): void {
-    const form = document.querySelector<HTMLFormElement>("#register-form");
+  const form = document.querySelector<HTMLFormElement>("#register-form");
 
-    if (!form) return;
+  if (!form) return;
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const nombre = (document.getElementById("register-nombre") as HTMLInputElement).value.trim();
-        const email = (document.getElementById("register-email") as HTMLInputElement).value.trim().toLowerCase();
-        const password = (document.getElementById("register-password") as HTMLInputElement).value.trim();
+    const nombre = (document.getElementById("register-nombre") as HTMLInputElement).value.trim();
+    const email = (document.getElementById("register-email") as HTMLInputElement).value.trim().toLowerCase();
+    const password = (document.getElementById("register-password") as HTMLInputElement).value.trim();
 
-        const result = registerUser(nombre, email, password);
+    if (password.length < 6) {
+      const message = document.getElementById("message");
+      if (message) message.textContent = "La contraseña debe tener al menos 6 caracteres.";
+      return;
+    }
 
-        const message = document.getElementById("message");
-        if (message) message.textContent = result.message;
+    const result = registerUser(nombre, email, password);
 
-        if (result.ok) form.reset();
-    });
+    const message = document.getElementById("message");
+    if (message) message.textContent = result.message;
+
+    if (result.ok) form.reset();
+  });
 }

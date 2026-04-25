@@ -26,6 +26,12 @@ export function initLogin(): void {
         const email = (document.getElementById("login-email") as HTMLInputElement).value.trim().toLowerCase();
         const password = (document.getElementById("login-password") as HTMLInputElement).value.trim();
 
+        if (email === "" || password === "") {
+            const message = document.getElementById("message");
+            if (message) message.textContent = "Completá email y contraseña.";
+            return;
+        }
+
         const result = loginUser(email, password);
 
         const message = document.getElementById("message");

@@ -83,7 +83,7 @@ function renderizarCarrito(): void {
 
         article.innerHTML = `
             <div class="cart-item-info">
-                <img src="${item.product.imagen}" alt="${item.product.nombre}" />
+                <img src="/assets/${item.product.imagen}" alt="${item.product.nombre}" />
 
                 <div>
                     <h4>${item.product.nombre}</h4>

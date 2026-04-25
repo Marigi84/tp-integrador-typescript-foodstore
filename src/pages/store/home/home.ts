@@ -45,7 +45,7 @@ function crearCardProducto(producto: Product): HTMLElement {
     const article = document.createElement("article");
 
     article.innerHTML = `
-        <img src="${producto.imagen}" alt="${producto.nombre}" class="producto-img" />
+        <img src="/assets/${producto.imagen}" alt="${producto.nombre}" class="producto-img" />
         <h3>${producto.nombre}</h3>
         <p>${producto.descripcion}</p>
         <p><strong>Categoría:</strong> ${producto.categorias[0].nombre}</p>
@@ -105,9 +105,10 @@ function buscarProductos(texto: string): void {
     if (!contenedorProductos) return;
 
     if (productosFiltrados.length === 0) {
-        contenedorProductos.innerHTML = "<p>No se encontraron productos.</p>";
-        return;
-    }
+    contenedorProductos.innerHTML = "<p>No se encontraron productos.</p>";
+    actualizarResumen("Resultados de búsqueda", 0);
+    return;
+}
 
     renderizarProductos(productosFiltrados);
     actualizarResumen("Resultados de búsqueda", productosFiltrados.length);
@@ -124,6 +125,7 @@ function renderizarCategorias(): void {
     liTodas.textContent = "Todas";
     liTodas.addEventListener("click", () => {
         renderizarProductos(PRODUCTS);
+        actualizarResumen("Todos los productos", PRODUCTS.length);
     });
     listaCategorias.appendChild(liTodas);
 

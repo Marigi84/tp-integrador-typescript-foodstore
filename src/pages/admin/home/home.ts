@@ -1,6 +1,8 @@
+import "../../../style.css";
 import { requireRole } from "../../../utils/navigate";
 import "./admin.css";
 import { logoutUser } from "../../../utils/auth";
+
 
 requireRole("admin");
 
