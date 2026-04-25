@@ -30,34 +30,33 @@ La aplicación permite a los usuarios registrarse, iniciar sesión y acceder a u
 
 ## 📁 Estructura del Proyecto
 
-
+```bash
 src/
-├── pages/
-│ ├── auth/
-│ │ ├── login/
-│ │ └── registro/
-│ ├── admin/
-│ └── store/
-│ ├── home/
-│ └── cart/
-│
-├── utils/
-│ ├── auth.ts
-│ ├── cart.ts
-│ ├── localStorage.ts
-│ └── navigate.ts
-│
-├── types/
-│ ├── IUser.ts
-│ ├── Rol.ts
-│ ├── product.ts
-│ └── cartItem.ts
-│
-├── data/
-│ └── data.ts
-│
-└── style.css
-
+  ├── pages/
+  │   ├── auth/
+  │   │   ├── login/
+  │   │   └── registro/
+  │   ├── admin/
+  │   └── store/
+  │       ├── home/
+  │       └── cart/
+  │
+  ├── utils/
+  │   ├── auth.ts
+  │   ├── cart.ts
+  │   ├── localStorage.ts
+  │   └── navigate.ts
+  │
+  ├── types/
+  │   ├── IUser.ts
+  │   ├── Rol.ts
+  │   ├── product.ts
+  │   └── cartItem.ts
+  │
+  ├── data/
+  │   └── data.ts
+  │
+  └── style.css
 
 ---
 ## 🔐 Funcionalidades Principales
