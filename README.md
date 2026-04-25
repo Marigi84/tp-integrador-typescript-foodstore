@@ -1,109 +1,128 @@
-# 🍔 Food Store - TP Integrador TypeScript & Autenticación
+# 🍔 Food Store - Parcial Programación III
 
 ## 📌 Descripción
+Este proyecto corresponde al Primer Parcial de Programación III, donde se continúa la evolución de la aplicación web "Food Store".
 
-Este proyecto corresponde al **Trabajo Práctico Integrador de Programación III**, cuyo objetivo es evolucionar una aplicación web dinámica ("Food Store") hacia un sistema con **autenticación, autorización por roles y persistencia de datos** utilizando **TypeScript y localStorage**.
-
-La aplicación permite registrar usuarios, iniciar sesión y acceder a diferentes vistas según el rol (**admin** o **client**), protegiendo el acceso a rutas sensibles.
+La aplicación permite a los usuarios registrarse, iniciar sesión y acceder a un catálogo dinámico de productos. Además, incorpora funcionalidades de búsqueda, filtrado por categorías y un carrito de compras con persistencia en localStorage.
 
 ---
 
 ## 🎯 Objetivos del Proyecto
-
-* Implementar autenticación basada en email y contraseña.
-* Gestionar sesión de usuario con persistencia en `localStorage`.
-* Aplicar autorización mediante roles (`admin` y `client`).
-* Proteger rutas evitando accesos no permitidos.
-* Utilizar TypeScript con tipado fuerte mediante interfaces.
-* Organizar el proyecto en una arquitectura modular.
+- Implementar un catálogo dinámico de productos.
+- Permitir la búsqueda de productos por nombre.
+- Filtrar productos por categoría.
+- Desarrollar un carrito de compras con persistencia en localStorage.
+- Mostrar productos, cantidades y total en el carrito.
+- Mantener autenticación y control de acceso por roles.
+- Aplicar buenas prácticas de organización y uso de TypeScript.
 
 ---
 
 ## 🛠️ Tecnologías Utilizadas
-
-* TypeScript
-* Vite
-* HTML5
-* CSS3
-* localStorage (simulación de base de datos)
+- TypeScript
+- Vite
+- HTML5
+- CSS3
+- Manipulación del DOM
+- localStorage (persistencia de datos)
 
 ---
 
 ## 📁 Estructura del Proyecto
 
-```text
+
 src/
- ├── pages/
- │    ├── auth/
- │    │    ├── login/
- │    │    └── registro/
- │    ├── admin/
- │    └── client/
- │
- ├── utils/
- │    ├── auth.ts
- │    ├── localStorage.ts
- │    └── navigate.ts
- │
- ├── types/
- │    ├── IUser.ts
- │    └── Rol.ts
- │
- └── data/
-      └── products.ts
-```
+├── pages/
+│ ├── auth/
+│ │ ├── login/
+│ │ └── registro/
+│ ├── admin/
+│ └── store/
+│ ├── home/
+│ └── cart/
+│
+├── utils/
+│ ├── auth.ts
+│ ├── cart.ts
+│ ├── localStorage.ts
+│ └── navigate.ts
+│
+├── types/
+│ ├── IUser.ts
+│ ├── Rol.ts
+│ ├── product.ts
+│ └── cartItem.ts
+│
+├── data/
+│ └── data.ts
+│
+└── style.css
+
 
 ---
 
 ## 🔐 Funcionalidades Principales
 
 ### ✅ Registro de usuarios
-
-* Captura email y contraseña.
-* Valida que no existan usuarios duplicados.
-* Guarda los datos en `localStorage` bajo la clave `"users"`.
+- Captura nombre, email y contraseña.
+- Valida datos ingresados.
+- Guarda los usuarios en localStorage.
 
 ### ✅ Login
-
-* Verifica credenciales contra los usuarios almacenados.
-* Si son correctas, guarda la sesión en `"userData"`.
+- Verifica credenciales.
+- Guarda la sesión en localStorage.
+- Redirige según el rol del usuario.
 
 ### ✅ Gestión de sesión
-
-* Mantiene la sesión activa incluso al recargar la página.
-* Permite cerrar sesión mediante botón de logout.
+- Mantiene sesión activa.
+- Permite cerrar sesión (logout).
 
 ### ✅ Roles
-
-* Los usuarios registrados tienen rol `client`.
-* Existe un usuario administrador (`admin`) con acceso a panel de administración.
+- Usuario `client`: acceso al catálogo y carrito.
+- Usuario `admin`: acceso al panel de administración.
 
 ### ✅ Protección de rutas
+- Control de acceso mediante guard.
+- Redirección automática si el usuario no tiene permisos.
 
-* Se implementa un **guard centralizado** en `main.ts`.
-* Un usuario sin sesión no puede acceder a páginas internas.
-* Un usuario `client` no puede acceder a `/admin.html`.
+---
+
+## 🛒 Carrito de Compras
+- Permite agregar productos desde el catálogo.
+- Si el producto ya existe, incrementa su cantidad.
+- Permite:
+  - Incrementar o disminuir cantidad
+  - Eliminar productos
+  - Vaciar carrito
+- Calcula y muestra el total de la compra.
+- Persistencia en localStorage.
+
+---
+
+## 🔍 Búsqueda y Filtros
+- Búsqueda en tiempo real por nombre.
+- Filtrado por categoría.
+- Actualización dinámica del catálogo.
+
+---
+
+## 🧑‍💻 Funcionalidad Cliente
+- Visualización de productos dinámicos.
+- Búsqueda por nombre.
+- Filtrado por categoría.
+- Agregar productos al carrito.
+- Gestión completa del carrito.
 
 ---
 
 ## 👤 Accesos de prueba
 
 ### Administrador
+- Email: admin@foodstore.com  
+- Contraseña: admin123  
 
-* Email: `admin@foodstore.com`
-* Contraseña: `admin123`
-
-### Usuario cliente
-
-* Se registra desde el formulario.
-
----
-
-## 🛒 Funcionalidad Cliente
-
-* Visualización de productos dinámicos.
-* Carga de categorías.
-* Interacción básica (botón "Agregar").
+### Cliente
+- Se registra desde el formulario.
 
 ---
 
@@ -113,45 +132,26 @@ src/
 
 ```bash
 git clone https://github.com/TU-USUARIO/TU-REPO.git
-```
-
-2. Instalar dependencias:
-
-```bash
+Instalar dependencias:
 npm install
-```
-
-3. Ejecutar el servidor de desarrollo:
-
-```bash
+Ejecutar el servidor:
 npm run dev
-```
-
-4. Abrir en el navegador:
-
-```text
+Abrir en el navegador:
 http://localhost:5173/
-```
+🧠 Conceptos Aplicados
+Tipado fuerte con TypeScript.
+Manipulación dinámica del DOM.
+Persistencia de datos con localStorage.
+Separación de responsabilidades (pages, utils, types).
+Autenticación y autorización en frontend.
+Protección de rutas.
+📌 Conclusión
 
----
+Este proyecto permitió consolidar conceptos fundamentales de desarrollo frontend, incorporando interacción con el usuario, persistencia de datos y control de acceso.
 
-## 🧠 Conceptos Aplicados
+Se logró evolucionar una aplicación estática hacia una aplicación dinámica e interactiva, sentando las bases para futuras integraciones con backend.
 
-* Tipado fuerte con interfaces (`IUser`, `Rol`).
-* Persistencia de datos en cliente.
-* Separación de responsabilidades (pages / utils / types).
-* Autenticación y autorización en frontend.
-* Protección lógica de rutas.
-
----
-
-## 📌 Conclusión
-
-Este proyecto permitió comprender la importancia de separar la lógica de seguridad de la interfaz visual, implementar autenticación real sin backend y preparar la base para futuras integraciones con APIs y bases de datos.
-
----
-
-## 👩‍💻 Autora
+👩‍💻 Autora
 
 Marina Giselle Cordero
 Tecnicatura Universitaria en Programación - UTN
